@@ -1,17 +1,13 @@
 const express = require('express');
 const app = express();
+const port = 3000;
 
 const productGetterRoutes = require('./routes/productGetterRoutes');
 app.use('/product', productGetterRoutes);
 
-app.post('/product', (req, res) => {
-  res.send('shop backend works!');
-});
+const productSetterRoutes = require('./routes/productSetterRoutes');
+app.use('/product', productSetterRoutes);
 
-app.patch('/product/:id', (req, res) => {
-  res.send('shop backend works!');
-});
-
-app.listen(3000, () => {
-  console.log('server started on http://localhost:3000');
+app.listen(port, () => {
+  console.log(`server started on http://localhost:${port}`);
 });
