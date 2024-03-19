@@ -4,8 +4,6 @@ const {
 } = require('../validation/createProductValidation');
 //POST/product
 async function createProduct(props) {
-  console.log(props);
-
   createProductValidation(props);
 
   const response = await Product.create(props);

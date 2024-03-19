@@ -3,13 +3,26 @@ const { getAllProducts, getProductById } = require('../controllers');
 
 const router = Router();
 //get /product
-router.get('/', (req, res) => {
-  const data = getAllProducts();
-  res.json(data);
+router.get('/', async (req, res) => {
+  try {
+    const data = await getAllProducts(req.body);
+
+    res.json(data);
+  } catch (error) {
+    console.log(`Error:${error.message}`);
+    res.status(400).json({ Error: error.message });
+  }
 });
 //get /product/id
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
   const data = getProductById();
-  res.json(data);
+  try {
+    const data = await getProductById(req.params.id);
+
+    res.json(data);
+  } catch (error) {
+    console.log(`Error:${error.message}`);
+    res.status(400).json({ Error: error.message });
+  }
 });
 module.exports = router;
