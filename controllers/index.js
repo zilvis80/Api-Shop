@@ -3,6 +3,7 @@ module.exports = {
   getProductById: require('./getProductByld'),
   createProduct: require('./createProducts'),
   updateProduct: require('./updateProduct'),
+  registerUser: require('./registerUser'),
 };
 // import getAllProducts from './getAllProducts';
 // export { getAllProducts };

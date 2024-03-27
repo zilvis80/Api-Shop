@@ -8,11 +8,13 @@ const port = 3000;
 app.use(cors());
 app.use(express.json());
 
-const productGetterRoutes = require('./routes/productGetterRoutes');
+const productGetterRoutes = require('./routes/productGetter.routes');
 app.use('/product', productGetterRoutes);
 
-const productSetterRoutes = require('./routes/productSetterRoutes');
+const productSetterRoutes = require('./routes/productSetter.routes');
 app.use('/product', productSetterRoutes);
+const userRoutes = require('./routes/user.routes');
+app.use('/user', userRoutes);
 app.get('/', (req, res) => res.send('Express on Vercel'));
 
 const connectDB = async () => {
